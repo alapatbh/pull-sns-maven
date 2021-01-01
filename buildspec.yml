@@ -11,11 +11,11 @@ phases:
       # - apt-get update -y
       # - apt-get install -y maven
       - java -version 
+      - mvn clean install
+      - cat settings.xml
 pre_build:
     commands:
       - echo Logging in to Amazon ECR...
 post_build:
     commands:
       - echo Build completed on `date`
-      - mvn clean install
-      - cat settings.xml
