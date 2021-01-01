@@ -12,7 +12,7 @@ phases:
       - echo Initialized CodePipleine for Cync-Los-Entity-Service
       - java -version 
       - cat settings_template.xml
-      - envsubst < "settings_template.txt" > "settings.txt"
+      - envsubst < "settings_template.xml" > "settings.xml"
       - cat settings.xml
       - cp ./settings.xml /root/.m2/settings.xml
       # - apt-get update -y
