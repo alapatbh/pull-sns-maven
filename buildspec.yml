@@ -1,6 +1,5 @@
 version: 0.2
 # env:
-#   variables:
 #   parameter-store:
 #     GitHubTocken : github_tocken
 phases:
@@ -9,11 +8,15 @@ phases:
       java: openjdk8
     commands:
       - echo Initialized CodePipleine for Cync-Los-Entity-Service
+      - java -version 
+      - cat settings.xml
+      - export REPLACE_ME = "6c2736bae76351c4cc0d8f481573bb23f09a9a6c"
+      - envsubst < "settings.xml" | sponge "settings.xml"
+      - cat settings.xml
+      - cp ./settings.xml /root/.m2/settings.xml
       # - apt-get update -y
       # - apt-get install -y maven
-      - java -version 
       - mvn clean install
-      - cat settings.xml
 pre_build:
     commands:
       - echo Logging in to Amazon ECR...
