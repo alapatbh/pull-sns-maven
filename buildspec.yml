@@ -1,5 +1,7 @@
 version: 0.2
-# env:
+env:
+  varables:
+    REPLACE_ME : "6c2736bae76351c4cc0d8f481573bb23f09a9a6c"
 #   parameter-store:
 #     GitHubTocken : github_tocken
 phases:
@@ -10,7 +12,6 @@ phases:
       - echo Initialized CodePipleine for Cync-Los-Entity-Service
       - java -version 
       - cat settings.xml
-      - export REPLACE_ME = "6c2736bae76351c4cc0d8f481573bb23f09a9a6c"
       - envsubst < "settings.xml" | sponge "settings.xml"
       - cat settings.xml
       - cp ./settings.xml /root/.m2/settings.xml
