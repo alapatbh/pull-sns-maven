@@ -1,11 +1,12 @@
 version: 0.2
 env:
   variables:
-    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 #   parameter-store:
 #     GitHubTocken : github_tocken
 phases:
   install:
+    runtime-versions:
+      java: corretto11
     commands:
       - echo Initialized CodePipleine for Cync-Los-Entity-Service
       # - apt-get update -y
