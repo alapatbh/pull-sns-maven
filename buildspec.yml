@@ -1,19 +1,21 @@
 version: 0.2
-# env:
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 #   parameter-store:
 #     GitHubTocken : github_tocken
 phases:
   install:
-    runtime-versions:
-      java: openjdk8
     commands:
       - echo Initialized CodePipleine for Cync-Los-Entity-Service
+      - apt-get update -y
+      - apt-get install -y maven
       - java -version 
-      - mvn clean install
-      - cat settings.xml
 pre_build:
     commands:
       - echo Logging in to Amazon ECR...
 post_build:
     commands:
       - echo Build completed on `date`
+      - mvn clean install
+      - cat settings.xml
