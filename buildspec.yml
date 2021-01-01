@@ -1,0 +1,19 @@
+version: 0.2
+# env:
+#   parameter-store:
+#     GitHubTocken : github_tocken
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+    commands:
+      - echo Initialized CodePipleine for Cync-Los-Entity-Service
+      - java -version 
+      - mvn clean install
+      - cat settings.xml
+pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+post_build:
+    commands:
+      - echo Build completed on `date`
