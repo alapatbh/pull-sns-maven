@@ -3,20 +3,16 @@ env:
 #   varables:
 #     REPLACE_ME : "6c2736bae76351c4cc0d8f481573bb23f09a9a6c"
   parameter-store:
-    GitHubTocken : GITHUB_TOKEN
+    GitHubToken : GITHUB_TOKEN
 phases:
   install:
     runtime-versions:
       java: openjdk8
     commands:
-      - echo Initialized CodePipleine for Cync-Los-Entity-Service
       - java -version
-      - export REPLACE_ME=$GitHubTocken
-      - envsubst < "settings_template.xml" > "settings.xml"
+      - REPLACE_ME=$GitHubToken envsubst '$REPLACE_ME' < "settings_template.xml" > "settings.xml"
       - cat settings.xml
       - cp ./settings.xml /root/.m2/settings.xml
-      # - apt-get update -y
-      # - apt-get install -y maven
       - mvn clean install
 pre_build:
     commands:
