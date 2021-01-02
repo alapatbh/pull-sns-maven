@@ -10,7 +10,7 @@ phases:
       java: openjdk8
     commands:
       - java -version
-      - REPLACE_ME=$GitHubToken envsubst '$REPLACE_ME' < "settings_template.xml" > "settings.xml"
+      - REPLACE_TOCKEN_HERE=$GitHubToken envsubst '$REPLACE_TOCKEN_HERE' < "settings_template.xml" > "settings.xml"
       - cat settings.xml
       - cp ./settings.xml /root/.m2/settings.xml
       - mvn clean install
