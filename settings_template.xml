@@ -32,7 +32,7 @@
         <server>
             <id>github</id>
             <username>bhanuIdexcel</username>
-            <password>$REPLACE_TOCKEN_HERE</password>
+            <password>$REPLACE_TOKEN_HERE</password>
         </server>
     </servers>
 </settings>
