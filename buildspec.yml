@@ -10,7 +10,7 @@ phases:
       java: openjdk8
     commands:
       - java -version
-      - cat settings.xml
+      - cat settings_template.xml
       - REPLACE_TOKEN_HERE=$GitHubToken envsubst '$REPLACE_TOKEN_HERE' < "settings_template.xml" > "settings.xml"
       - cat settings.xml
       - cp ./settings.xml /root/.m2/settings.xml
